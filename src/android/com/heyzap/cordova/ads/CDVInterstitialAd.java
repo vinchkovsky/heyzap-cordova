@@ -25,11 +25,15 @@
 
 package com.heyzap.cordova.ads;
 
+import android.util.Log;
+
 import org.apache.cordova.CallbackContext;
+import org.apache.cordova.PluginResult;
 
 import org.json.JSONArray;
 
 import com.heyzap.sdk.ads.InterstitialAd;
+import com.heyzap.sdk.extensions.unity3d.UnityHelper;
 
 public class CDVInterstitialAd extends CDVHeyzapAbstractPlugin {
     private static final String TAG = "CDVInterstitialAd";
@@ -67,7 +71,7 @@ public class CDVInterstitialAd extends CDVHeyzapAbstractPlugin {
             callbackContext.success();
 
         } else {
-            callbackContext.error("Incentivized ad is not available.");
+            callbackContext.error("Interstitial Ad ad is not available.");
         }
     }
 
@@ -77,8 +81,57 @@ public class CDVInterstitialAd extends CDVHeyzapAbstractPlugin {
             callbackContext.success();
 
         } else {
-            callbackContext.error("Incentivized ad is not available");
+            callbackContext.error("Interstitial Ad is not available");
         }
     }
 
+    // Chartboost Cross-promo
+    public void chartboostFetchForLocation(final JSONArray args, final CallbackContext callbackContext) {
+        String location = args.optString(0);
+
+        try {
+            UnityHelper.chartboostLocationFetch(location);
+            callbackContext.success();
+
+        } catch (Exception e) {
+            String msg = "Could not fetch Chartboost for location: " + location + ", Error: " + e.getMessage();
+            Log.e(TAG, msg);
+            e.printStackTrace();
+
+            callbackContext.error(msg);
+        }
+    }
+
+    public void chartboostShowForLocation(final JSONArray args, final CallbackContext callbackContext) {
+        String location = args.optString(0);
+
+        try {
+            UnityHelper.chartboostLocationShow(location);
+            callbackContext.success();
+            
+        } catch (Exception e) {
+            String msg = "Could not show Chartboost for location: " + location + ", Error: " + e.getMessage();
+            Log.e(TAG, msg);
+            e.printStackTrace();
+
+            callbackContext.error(msg);
+        }
+    }
+
+    public void chartboostIsAvailableForLocation(final JSONArray args, final CallbackContext callbackContext) {
+        String location = args.optString(0);
+
+        try {
+            boolean available = UnityHelper.chartboostLocationIsAvailable(location);
+            PluginResult result = new PluginResult(PluginResult.Status.OK, available);
+            callbackContext.sendPluginResult(result);
+            
+        } catch (Exception e) {
+            String msg = "Could not determine if Chartboost is available for location: " + location + ", Error: " + e.getMessage();
+            Log.e(TAG, msg);
+            e.printStackTrace();
+
+            callbackContext.error(msg);
+        }
+    }
 }

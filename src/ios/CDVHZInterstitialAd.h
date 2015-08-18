@@ -30,4 +30,9 @@
 - (void)fetch:(CDVInvokedUrlCommand *)command;
 - (void)show:(CDVInvokedUrlCommand *)command;
 
+# pragma mark - Chartboost Cross-promo
+- (void) chartboostFetchForLocation:(CDVInvokedUrlCommand *)command;
+- (void) chartboostShowForLocation:(CDVInvokedUrlCommand *)command;
+- (void) chartboostIsAvailableForLocation:(CDVInvokedUrlCommand *)command;
+
 @end

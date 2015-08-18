@@ -93,6 +93,10 @@
     <framework src="src/ios/sdk/Heyzap/HeyzapAds.framework" custom="true" compiler-flags="-fmodules" />
     <!-- / Heyzap SDK -->
 
+    <!-- External SDKs -->
+    <framework src="src/ios/sdk/Chartboost/Chartboost.framework" custom="true" compiler-flags="-fmodules" />
+    <!-- / External SDKs -->
+
     <!-- External Frameworks -->
     <framework src="AVFoundation.framework"/>
     <framework src="Accelerate.framework"/>
@@ -256,6 +260,10 @@
     <!-- Heyzap SDK -->
     <source-file src="src/android/sdk/heyzap-ads-sdk.jar" target-dir="libs" />
     <!-- / Heyzap SDK -->
+
+    <!-- External SDKs -->
+    <source-file src="src/android/sdk/chartboost.jar" target-dir="libs" />
+    <!-- / External SDKs -->
 
     <framework src="com.google.android.gms:play-services:+" />
     

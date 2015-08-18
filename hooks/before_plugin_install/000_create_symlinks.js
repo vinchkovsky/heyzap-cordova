@@ -24,6 +24,13 @@ module.exports = function(ctx) {
       'Headers': 'Versions/A/Headers',
       'HeyzapAds': 'Versions/A/HeyzapAds',
       'Versions/Current': 'Versions/A'
+    },
+
+    'Chartboost/Chartboost.framework': {
+      // dest: src
+      'Headers': 'Versions/A/Headers',
+      'Chartboost': 'Versions/A/Chartboost',
+      'Versions/Current': 'Versions/A'
     }
   };
 

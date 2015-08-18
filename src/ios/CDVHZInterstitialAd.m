@@ -24,6 +24,13 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 
 #import "CDVHZInterstitialAd.h"
+#import <Chartboost/Chartboost.h>
+
+@interface CDVHZInterstitialAd()
+
+- (BOOL) chartboostEnabled;
+
+@end
 
 @implementation CDVHZInterstitialAd
 
@@ -84,6 +91,68 @@
 #pragma mark - Overriden Methods
 - (void)addDelegate {
     [HZInterstitialAd setDelegate:self];
+}
+
+# pragma mark - Chartboost Cross-promo
+- (void) chartboostFetchForLocation:(CDVInvokedUrlCommand *)command {
+    if (![self chartboostEnabled]) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self chartboostFetchForLocation: command];
+            return;
+        });
+        return;
+    }
+    
+    CDVPluginResult *result;
+    NSString *location = [command argumentAtIndex:0 withDefault:@"" andClass:[NSString class]];
+    
+    if (location) {
+        [Chartboost cacheInterstitial:location];
+        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    } else {
+        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Location missing."];
+    }
+    
+    [[self commandDelegate] sendPluginResult:result callbackId:command.callbackId];
+}
+
+- (void) chartboostShowForLocation:(CDVInvokedUrlCommand *)command {
+    CDVPluginResult *result;
+    
+    if (![self chartboostEnabled]) {
+        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR
+                                   messageAsString:@"Chartboost not enabled yet; not able to show ad."];
+        
+    } else {
+        NSString *location = [command argumentAtIndex:0 withDefault:@"" andClass:[NSString class]];
+        
+        if (location) {
+            [Chartboost showInterstitial:location];
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+            
+        } else {
+            result = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Location missing."];
+        }
+    }
+    
+    [[self commandDelegate] sendPluginResult:result callbackId:command.callbackId];
+}
+
+- (void) chartboostIsAvailableForLocation:(CDVInvokedUrlCommand *)command {
+    CDVPluginResult *result;
+    
+    if (![self chartboostEnabled]) {
+        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:NO];
+        
+    } else {
+        NSString *location = [command argumentAtIndex:0 withDefault:@"" andClass:[NSString class]];
+        result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:[Chartboost hasInterstitial:location]];
+    }
+    [[self commandDelegate] sendPluginResult:result callbackId:command.callbackId];
+}
+
+- (BOOL) chartboostEnabled {
+    return [HeyzapAds isNetworkInitialized:HZNetworkChartboost];
 }
 
 @end

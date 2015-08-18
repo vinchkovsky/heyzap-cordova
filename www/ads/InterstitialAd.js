@@ -85,7 +85,56 @@
      *
      * @throws {TypeError} If the parameters do not match their types
      */
-    addEventListener: Common.partial(Common.addEventListener, SERVICE)
+    addEventListener: Common.partial(Common.addEventListener, SERVICE),
+
+    /* CHARTBOOST CROSS-PROMO */
+
+    /**
+     * Fetch a Chartboost Ad
+     * 
+     * @param  {string} location Location
+     * 
+     * @return {Promise} An ES-6 style promise if the native call succeeded for failed.
+     */
+    chartboostFetch: function chartboostFetch(location) {
+      if (typeof(location) !== 'undefined' && typeof(location) !== 'string') {
+        throw new TypeError('"location" must be undefined or of type "string".');
+      }
+
+      return Common.exec(SERVICE, 'chartboostFetchForLocation', location);
+    },
+
+    /**
+     * Show a Chartboost Ad
+     * 
+     * @param  {string} location Location
+     * 
+     * @return {Promise} An ES-6 style promise if the native call succeeded for failed.
+     */
+    chartboostShow: function chartboostShow(location) {
+      if (typeof(location) !== 'undefined' && typeof(location) !== 'string') {
+        throw new TypeError('"location" must be undefined or of type "string".');
+      }
+
+      return Common.exec(SERVICE, 'chartboostShowForLocation', location);
+    },
+
+    /**
+     * Determine of Chartboost Ad is available for a location
+     * 
+     * @param  {string} location Location
+     * 
+     * @return {Promise} An ES-6 style promise if the native call succeeded for failed.
+     * The success callback will have a boolean as the first parameter which indicates
+     * if a Chartboost ad is available
+     */
+    chartboostIsAvailable: function chartboostIsAvailable(location) {
+      if (typeof(location) !== 'undefined' && typeof(location) !== 'string') {
+        throw new TypeError('"location" must be undefined or of type "string".');
+      }
+
+      return Common.exec(SERVICE, 'chartboostIsAvailableForLocation', location);
+    }
   };
 
   Common.registerEventsForService(SERVICE, InterstitialAd.Events, false);

@@ -24,7 +24,6 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 
 #import "CDVHZIncentivizedAd.h"
-#import <HeyzapAds/HeyzapAds.h>
 
 @implementation CDVHZIncentivizedAd
 
@@ -81,7 +80,7 @@
     });
 }
 
-#pragma mark - Overriden Methods
+# pragma mark - Overriden Methods
 - (void)addDelegate {
     [HZIncentivizedAd setDelegate:self];
 }

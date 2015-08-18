@@ -24,7 +24,6 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 
 #import "CDVHeyzapAds.h"
-#import <HeyzapAds/HeyzapAds.h>
 
 @interface CDVHeyzapAds()
 
