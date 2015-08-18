@@ -71,7 +71,7 @@ public class CDVInterstitialAd extends CDVHeyzapAbstractPlugin {
             callbackContext.success();
 
         } else {
-            callbackContext.error("Interstitial Ad ad is not available.");
+            callbackContext.error("Interstitial Ad is not available.");
         }
     }
 
