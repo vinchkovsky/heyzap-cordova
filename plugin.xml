@@ -94,7 +94,46 @@
     <!-- / Heyzap SDK -->
 
     <!-- External SDKs -->
+    <framework src="src/ios/sdk/AdColony/AdColony.framework" custom="true" compiler-flags="-fmodules" />
     <framework src="src/ios/sdk/Chartboost/Chartboost.framework" custom="true" compiler-flags="-fmodules" />
+    <framework src="src/ios/sdk/UnityAds/UnityAds.framework" custom="true" compiler-flags="-fmodules" />
+    <framework src="src/ios/sdk/Vungle/VungleSDK.embeddedframework/VungleSDK.framework" custom="true" compiler-flags="-fmodules" />
+
+    <header-file src="src/ios/sdk/AppLovin/headers/ALAd.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALAdDisplayDelegate.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALAdLoadDelegate.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALAdRewardDelegate.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALAdService.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALAdSize.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALAdType.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALAdUpdateDelegate.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALAdVideoPlaybackDelegate.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALAdView.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALErrorCodes.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALIncentivizedInterstitialAd.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALInterstitialAd.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALNativeAd.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALNativeAdLoadDelegate.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALNativeAdPrecacheDelegate.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALNativeAdService.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALNullabilityAnnotations.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALPostbackDelegate.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALPostbackService.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALSdk.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALSdkSettings.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALSwiftHeaders.h" />
+    <header-file src="src/ios/sdk/AppLovin/headers/ALTargetingData.h" />
+
+    <source-file src="src/ios/sdk/AppLovin/libAppLovinSdk.a" framework="true"/>
+
+    <resource-file src="src/ios/sdk/UnityAds/UnityAds.bundle" />
+
+    <resource-file src="src/ios/sdk/Vungle/VungleSDK.embeddedframework/Resources/__vungle.db" />
+    <resource-file src="src/ios/sdk/Vungle/VungleSDK.embeddedframework/Resources/vg_close.png" />
+    <resource-file src="src/ios/sdk/Vungle/VungleSDK.embeddedframework/Resources/vg_cta.png" />
+    <resource-file src="src/ios/sdk/Vungle/VungleSDK.embeddedframework/Resources/vg_mute_off.png" />
+    <resource-file src="src/ios/sdk/Vungle/VungleSDK.embeddedframework/Resources/vg_mute_on.png" />
+    <resource-file src="src/ios/sdk/Vungle/VungleSDK.embeddedframework/Resources/vg_privacy.png" />
     <!-- / External SDKs -->
 
     <!-- External Frameworks -->
