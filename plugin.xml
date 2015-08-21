@@ -298,11 +298,21 @@
     <!-- / Native app manifest - Application Tag -->
     
     <!-- Heyzap SDK -->
-    <source-file src="src/android/sdk/heyzap-ads-sdk.jar" target-dir="libs" />
+    <source-file src="src/android/sdk/Heyzap/heyzap-ads-sdk.jar" target-dir="libs" />
     <!-- / Heyzap SDK -->
 
     <!-- External SDKs -->
-    <source-file src="src/android/sdk/chartboost.jar" target-dir="libs" />
+    <source-file src="src/android/sdk/AdColony/adcolony.jar" target-dir="libs" />
+    <source-file src="src/android/sdk/AdColony/armeabi/libImmEndpointWarpJ.so" target-dir="libs/armeabi" />
+    <source-file src="src/android/sdk/AppLovin/applovin-sdk-6.0.0.jar" target-dir="libs" />
+    <source-file src="src/android/sdk/Chartboost/chartboost.jar" target-dir="libs" />
+    <source-file src="src/android/sdk/UnityAds/unityads.jar" target-dir="libs" />
+    <source-file src="src/android/sdk/Vungle/dagger-1.2.2.jar" target-dir="libs" />
+    <source-file src="src/android/sdk/Vungle/javax.inject.jar" target-dir="libs" />
+    <source-file src="src/android/sdk/Vungle/nineoldandroids-2.4.0.jar" target-dir="libs" />
+    <source-file src="src/android/sdk/Vungle/vungle-publisher-adaptive-id-3.3.0.jar" target-dir="libs" />
+
+    <framework src="com.android.support:support-v4:18.0.0" />
     <!-- / External SDKs -->
 
     <framework src="com.google.android.gms:play-services:+" />
