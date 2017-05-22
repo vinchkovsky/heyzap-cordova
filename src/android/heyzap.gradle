@@ -6,8 +6,8 @@ repositories{
 }
 
 dependencies {
-  compile 'com.google.android.gms:play-services-ads:8.3.0'
-  compile 'com.google.android.gms:play-services-location:8.3.0'
+  compile 'com.google.android.gms:play-services-ads:9.0.0'
+  compile 'com.google.android.gms:play-services-location:9.0.0'
    compile(name:'heyzap-unified-platform-10.0.10', ext:'aar')
 }
 
