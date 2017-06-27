@@ -181,7 +181,6 @@
     
     <!-- Heyzap SDK -->
     <source-file src="src/android/sdk/heyzap-ads-sdk.jar" target-dir="libs" />
-    <framework src="com.google.android.gms:play-services-ads:8.3.0" />
     <!-- / Heyzap SDK -->
     
     <!-- Adapters -->
